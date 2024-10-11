@@ -1,4 +1,4 @@
 # student-performance-prediction<br>
 
-npm install
+npm install<br>
 npm run dev
