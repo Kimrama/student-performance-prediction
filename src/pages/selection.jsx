@@ -8,6 +8,18 @@ import ParentalInvolement from "./questions/parentalInvolement";
 import AcessToResources from "./questions/accessToResoures";
 import ExtracurricularActivities from "./questions/extracurricularActivities";
 import HourSleeped from "./questions/hourSleeped";
+import MotivationLevel from "./questions/motivationLevel";
+import PreviousScores from "./questions/previousScores";
+import InternetAccess from "./questions/internetAccess";
+import TutoringSessions from "./questions/tutoringSessions";
+import FamilyIncome from "./questions/familyIncome";
+import TeacherQuality from "./questions/teacherQuality";
+import SchoolType from "./questions/schoolType";
+import PeerInfluence from "./questions/peerInfluence";
+import PhysicalActivity from "./questions/physicalActivity";
+import LearningDisabilities from "./questions/learningDisabilities";
+import ParentalEducationLevel from "./questions/parentalEducationLevel";
+import DistanceFromHome from "./questions/distanceFromHome";
 const Selection = () => {
     const [gender, setGender] = useState(undefined);
     const updateGender = (val) => {
@@ -38,6 +50,63 @@ const Selection = () => {
     const updateHourSleeped = (val) => {
         setHourSleeped(val);
     };
+
+    const [motivationLevel, setMotivationLevel] = useState(undefined);
+    const updateMotivationLevel = (val) => {
+        setMotivationLevel(val);
+    };
+
+    const [previousScores, setPreviousScores] = useState(undefined);
+    const updatePreviousScores = (val) => {
+        setPreviousScores(val);
+    };
+    const [internetAccess, setInternetAccess] = useState(undefined);
+    const updateInternetAccess = (val) => {
+        setInternetAccess(val);
+    };
+
+    const [tutoringSessions, setTutoringSessions] = useState(undefined);
+    const updateTutoringSessions = (val) => {
+        setTutoringSessions(val);
+    };
+
+    const [familyIncome, setFamilyIncome] = useState(undefined);
+    const updateFamilyIncome = (val) => {
+        setFamilyIncome(val);
+    };
+
+    const [teacherQuality, setTacherQuality] = useState(undefined);
+    const updateTeacherQuality = (val) => {
+        setTacherQuality(val);
+    };
+    const [schoolType, setSchoolType] = useState(undefined);
+    const updateSchoolType = (val) => {
+        setSchoolType(val);
+    };
+    const [peerInfluence, setPeerInfluence] = useState(undefined);
+    const updatePeerInfluence = (val) => {
+        setPeerInfluence(val);
+    };
+
+    const [physicalActivity, setPhysicalActivity] = useState(undefined);
+    const updatePhysicalActivity = (val) => {
+        setPhysicalActivity(val);
+    };
+
+    const [learningDisabilities, setLearningDisabilities] = useState(undefined);
+    const updateLearningDisabilities = (val) => {
+        setLearningDisabilities(val);
+    };
+    const [parentalEducationLevel, setParentalEducationLevel] =
+        useState(undefined);
+    const updateParentalEducationLevel = (val) => {
+        setParentalEducationLevel(val);
+    };
+    const [distanceFromHome, setDistanceFromHome] = useState(undefined);
+    const updateDistanceFromHome = (val) => {
+        setDistanceFromHome(val);
+    };
+
     return (
         <>
             <Link to="/">
@@ -52,6 +121,15 @@ const Selection = () => {
                 <div className="w-[80vw]">
                     <HourStudied updateHourStudied={updateHourStudied} />
                     <HourSleeped updateHourSleeped={updateHourSleeped} />
+                    <PreviousScores
+                        updatePreviousScores={updatePreviousScores}
+                    />
+                    <TutoringSessions
+                        updateTutoringSessions={updateTutoringSessions}
+                    />
+                    <PhysicalActivity
+                        updatePhysicalActivity={updatePhysicalActivity}
+                    />
                     <Gender updateGender={updateGender} />
                     <ParentalInvolement
                         updateParentalInvolement={updateParentalInvolement}
@@ -63,6 +141,29 @@ const Selection = () => {
                         updateExtracurricularActivities={
                             updateExtracurricularActivities
                         }
+                    />
+                    <MotivationLevel
+                        updateMotivationLevel={updateMotivationLevel}
+                    />
+                    <InternetAccess
+                        updateInternetAccess={updateInternetAccess}
+                    />
+                    <FamilyIncome updateFamilyIncome={updateFamilyIncome} />
+                    <TeacherQuality
+                        updateTeacherQuality={updateTeacherQuality}
+                    />
+                    <SchoolType updateSchoolType={updateSchoolType} />
+                    <PeerInfluence updatePeerInfluence={updatePeerInfluence} />
+                    <LearningDisabilities
+                        updateLearningDisabilities={updateLearningDisabilities}
+                    />
+                    <ParentalEducationLevel
+                        updateParentalEducationLevel={
+                            updateParentalEducationLevel
+                        }
+                    />
+                    <DistanceFromHome
+                        updateDistanceFromHome={updateDistanceFromHome}
                     />
                 </div>
             </div>
