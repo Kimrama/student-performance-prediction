@@ -5,6 +5,9 @@ import { useState } from "react";
 import HourStudied from "./questions/hourStudied";
 import Gender from "./questions/gender";
 import ParentalInvolement from "./questions/parentalInvolement";
+import AcessToResources from "./questions/accessToResoures";
+import ExtracurricularActivities from "./questions/extracurricularActivities";
+import HourSleeped from "./questions/hourSleeped";
 const Selection = () => {
     const [gender, setGender] = useState(undefined);
     const updateGender = (val) => {
@@ -20,6 +23,21 @@ const Selection = () => {
         setParentalInvolement(val);
     };
 
+    const [acessToResources, setAcessToResources] = useState(undefined);
+    const updateAcessToResources = (val) => {
+        setAcessToResources(val);
+    };
+
+    const [extracurricularActivities, setExtracurricularActivities] =
+        useState(undefined);
+    const updateExtracurricularActivities = (val) => {
+        setExtracurricularActivities(val);
+    };
+
+    const [hourSleeped, setHourSleeped] = useState(undefined);
+    const updateHourSleeped = (val) => {
+        setHourSleeped(val);
+    };
     return (
         <>
             <Link to="/">
@@ -33,9 +51,18 @@ const Selection = () => {
             <div className="flex justify-center w-screen mt-32">
                 <div className="w-[80vw]">
                     <HourStudied updateHourStudied={updateHourStudied} />
+                    <HourSleeped updateHourSleeped={updateHourSleeped} />
                     <Gender updateGender={updateGender} />
                     <ParentalInvolement
                         updateParentalInvolement={updateParentalInvolement}
+                    />
+                    <AcessToResources
+                        updateAcessToResources={updateAcessToResources}
+                    />
+                    <ExtracurricularActivities
+                        updateExtracurricularActivities={
+                            updateExtracurricularActivities
+                        }
                     />
                 </div>
             </div>

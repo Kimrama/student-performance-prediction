@@ -3,7 +3,7 @@ const Home = () => {
     return (
         <>
             <Link to="/selection">
-                <div className="transform transition ease-in-out duration-300 hover:scale-125 hover:bg-blue-900 bg-theme-blue w-[400px] h-[400px] rounded-full leading-[400px] text-center absolute top-[35vh] left-[70vw] text-white text-6xl font-extrabold">
+                <div className="transform transition ease-in-out duration-300 hover:scale-125 hover:bg-blue-900 bg-theme-blue w-[400px] h-[400px] rounded-full leading-[400px] text-center absolute top-[40vh] left-[70vw] text-white text-6xl font-extrabold">
                     START
                 </div>
             </Link>
