@@ -41,7 +41,6 @@ const DistanceFromHome = ({ updateDistanceFromHome }) => {
                     Far
                 </button>
             </div>
-            DistanceFromHome
         </div>
     );
 };

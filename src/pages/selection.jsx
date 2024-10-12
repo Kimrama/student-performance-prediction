@@ -20,6 +20,7 @@ import PhysicalActivity from "./questions/physicalActivity";
 import LearningDisabilities from "./questions/learningDisabilities";
 import ParentalEducationLevel from "./questions/parentalEducationLevel";
 import DistanceFromHome from "./questions/distanceFromHome";
+import Attendance from "./questions/attendance";
 const Selection = () => {
     const [gender, setGender] = useState(undefined);
     const updateGender = (val) => {
@@ -60,6 +61,11 @@ const Selection = () => {
     const updatePreviousScores = (val) => {
         setPreviousScores(val);
     };
+    const [attendance, setAttendance] = useState(undefined);
+    const updateAttendance = (val) => {
+        setAttendance(val);
+    };
+
     const [internetAccess, setInternetAccess] = useState(undefined);
     const updateInternetAccess = (val) => {
         setInternetAccess(val);
@@ -107,6 +113,30 @@ const Selection = () => {
         setDistanceFromHome(val);
     };
 
+    const submitHandle = () => {
+        const dataObj = {
+            Hours_Studied: hourStudied,
+            Attendance: attendance,
+            Parental_Involvement: parentalInvolement,
+            Access_to_Resources: acessToResources,
+            Extracurricular_Activities: extracurricularActivities,
+            Sleep_Hours: hourSleeped,
+            Previous_Scores: previousScores,
+            Motivation_Level: motivationLevel,
+            Internet_Access: internetAccess,
+            Tutoring_Sessions: tutoringSessions,
+            Family_Income: familyIncome,
+            Teacher_Quality: teacherQuality,
+            School_Type: schoolType,
+            Peer_Influence: peerInfluence,
+            Physical_Activity: physicalActivity,
+            Learning_Disabilities: learningDisabilities,
+            Parental_Education_Level: parentalEducationLevel,
+            Distance_from_Home: distanceFromHome,
+            Gender: gender,
+        };
+        console.log(dataObj);
+    };
     return (
         <>
             <Link to="/">
@@ -120,6 +150,7 @@ const Selection = () => {
             <div className="flex justify-center w-screen mt-32">
                 <div className="w-[80vw]">
                     <HourStudied updateHourStudied={updateHourStudied} />
+                    <Attendance updateAttendance={updateAttendance} />
                     <HourSleeped updateHourSleeped={updateHourSleeped} />
                     <PreviousScores
                         updatePreviousScores={updatePreviousScores}
@@ -166,6 +197,14 @@ const Selection = () => {
                         updateDistanceFromHome={updateDistanceFromHome}
                     />
                 </div>
+            </div>
+            <div className="flex w-screen justify-end">
+                <button
+                    className="my-8 w-80 h-16 border-[1px] border-black text-center rounded-full mr-12 bg-theme-green"
+                    onClick={submitHandle}
+                >
+                    DONE
+                </button>
             </div>
         </>
     );
