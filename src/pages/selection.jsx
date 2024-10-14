@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLeftLong } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import HourStudied from "./questions/hourStudied";
 import Gender from "./questions/gender";
 import ParentalInvolement from "./questions/parentalInvolement";
@@ -22,6 +22,11 @@ import ParentalEducationLevel from "./questions/parentalEducationLevel";
 import DistanceFromHome from "./questions/distanceFromHome";
 import Attendance from "./questions/attendance";
 const Selection = () => {
+    useEffect(() => {
+        localStorage.removeItem("predicData");
+    });
+    const navigate = useNavigate();
+
     const [gender, setGender] = useState(undefined);
     const updateGender = (val) => {
         setGender(val);
@@ -135,12 +140,12 @@ const Selection = () => {
             Distance_from_Home: distanceFromHome,
             Gender: gender,
         };
-        console.log(dataObj);
+        navigate("/prediction", { state: { dataObj } });
     };
     return (
         <>
             <Link to="/">
-                <div className="fixed m-8 top-15 w-[80px] h-[80px] bg-theme-green rounded-full flex justify-center items-center">
+                <div className="fixed m-8 top-15 w-[80px] h-[80px] bg-theme-green rounded-full flex justify-center items-center transform transition ease-in-out duration-300 hover:scale-125">
                     <FontAwesomeIcon
                         icon={faLeftLong}
                         className="text-white text-5xl"

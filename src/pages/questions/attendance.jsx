@@ -6,18 +6,23 @@ const Attendance = ({ updateAttendance }) => {
     const handleAttendance = (e) => {
         setAttendance(e.target.value);
         updateAttendance(e.target.value);
+        localStorage.setItem("attendance", e.target.value);
     };
     return (
         <div className="mb-14">
-            <h1 className="text-7xl font-extrabold text-theme-blue">
+            <h1 className="text-6xl font-extrabold text-theme-blue">
                 ATTENDANCE PERCENTAGE
             </h1>
-            <p className="text-2xl">format ex.10, 20, 99</p>
+            <div className="text-2xl flex">
+                Determine what percentage of this class you attended.--
+                <p className="bg-yellow-200">0 - 100</p>
+            </div>
             <input
                 type="text"
                 placeholder="set"
                 className="mt-8 w-80 h-16 border-[1px] border-black text-center rounded-full"
                 onChange={handleAttendance}
+                value={localStorage.getItem("attendance")}
             />
         </div>
     );

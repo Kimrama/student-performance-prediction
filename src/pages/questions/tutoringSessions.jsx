@@ -7,18 +7,23 @@ const TutoringSessions = ({ updateTutoringSessions }) => {
     const handleTutoringSessions = (e) => {
         setContent(e.target.value);
         updateTutoringSessions(e.target.value);
+        localStorage.setItem("tutoringSessions", e.target.value);
     };
     return (
         <div className="mb-14">
-            <h1 className="text-7xl font-extrabold text-theme-blue">
+            <h1 className="text-6xl font-extrabold text-theme-blue">
                 TUTORING SESSIONS
             </h1>
-            <p className="text-2xl">format ex. 0 - 10</p>
+            <div className="text-2xl flex">
+                How many tutoring sessions have you attended?--
+                <p className="bg-yellow-200">0, 1, 2, 3...</p>
+            </div>
             <input
                 type="text"
                 placeholder="set"
                 className="mt-8 w-80 h-16 border-[1px] border-black text-center rounded-full"
                 onChange={handleTutoringSessions}
+                value={localStorage.getItem("tutoringSessions")}
             />
         </div>
     );

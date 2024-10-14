@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
 const Gender = ({ updateGender }) => {
@@ -7,10 +7,16 @@ const Gender = ({ updateGender }) => {
     const handleGender = (e) => {
         setGender(e.target.value);
         updateGender(e.target.value);
+        localStorage.setItem("gender", e.target.value);
     };
+
+    useEffect(() => {
+        setGender(localStorage.getItem("gender"));
+    }, []);
+
     return (
         <div className="mb-14">
-            <h1 className="text-7xl font-extrabold text-theme-blue">GENDER</h1>
+            <h1 className="text-6xl font-extrabold text-theme-blue">GENDER</h1>
             <div className="flex">
                 <button
                     className={`mt-8 w-80 h-16 border-[1px] border-black text-center rounded-full mr-12 ${

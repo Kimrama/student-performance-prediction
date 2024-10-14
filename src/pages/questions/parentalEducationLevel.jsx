@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 const ParentalEducationLevel = ({ updateParentalEducationLevel }) => {
@@ -6,12 +6,17 @@ const ParentalEducationLevel = ({ updateParentalEducationLevel }) => {
     const handleContent = (e) => {
         setContent(e.target.value);
         updateParentalEducationLevel(e.target.value);
+        localStorage.setItem("parentalEducationLevel", e.target.value);
     };
+    useEffect(() => {
+        setContent(localStorage.getItem("parentalEducationLevel"));
+    }, []);
     return (
         <div className="mb-14">
-            <h1 className="text-7xl font-extrabold text-theme-blue">
+            <h1 className="text-6xl font-extrabold text-theme-blue">
                 PARENTAL EDUCATION LEVEL
             </h1>
+            <div className="text-2xl flex">Your family's education level.</div>
             <div className="flex">
                 <button
                     className={`mt-8 w-80 h-16 border-[1px] border-black text-center rounded-full mr-12 ${

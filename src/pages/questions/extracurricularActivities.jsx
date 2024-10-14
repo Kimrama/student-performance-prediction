@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
 const ExtracurricularActivities = ({ updateExtracurricularActivities }) => {
@@ -7,12 +7,22 @@ const ExtracurricularActivities = ({ updateExtracurricularActivities }) => {
     const handleAcessToResources = (e) => {
         setExtracurricularActivities(e.target.value);
         updateExtracurricularActivities(e.target.value);
+        localStorage.setItem("extracurricularActivities", e.target.value);
     };
+
+    useEffect(() => {
+        setExtracurricularActivities(
+            localStorage.getItem("extracurricularActivities")
+        );
+    }, []);
     return (
         <div className="mb-14">
-            <h1 className="text-7xl font-extrabold text-theme-blue">
+            <h1 className="text-6xl font-extrabold text-theme-blue">
                 EXTRACURRICULAR ACTIVITIES
             </h1>
+            <div className="text-2xl flex">
+                Non-curriculum activities such as sports.
+            </div>
             <div className="flex">
                 <button
                     className={`mt-8 w-80 h-16 border-[1px] border-black text-center rounded-full mr-12 ${

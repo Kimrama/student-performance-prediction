@@ -7,18 +7,23 @@ const PreviousScores = ({ updatePreviousScores }) => {
     const handlePreviousScores = (e) => {
         setPreviousScores(e.target.value);
         updatePreviousScores(e.target.value);
+        localStorage.setItem("previousScores", e.target.value);
     };
     return (
         <div className="mb-14">
-            <h1 className="text-7xl font-extrabold text-theme-blue">
+            <h1 className="text-6xl font-extrabold text-theme-blue">
                 PREVIOUS SCORES
             </h1>
-            <p className="text-2xl">format ex. 100, 95, 5, 0</p>
+            <div className="text-2xl flex">
+                What score did you get on your last test?--
+                <p className="bg-yellow-200">0 - 100</p>
+            </div>
             <input
                 type="text"
                 placeholder="set"
                 className="mt-8 w-80 h-16 border-[1px] border-black text-center rounded-full"
                 onChange={handlePreviousScores}
+                value={localStorage.getItem("previousScores")}
             />
         </div>
     );

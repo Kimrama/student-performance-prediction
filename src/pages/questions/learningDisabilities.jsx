@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
 const LearningDisabilities = ({ updateLearningDisabilities }) => {
@@ -6,12 +6,19 @@ const LearningDisabilities = ({ updateLearningDisabilities }) => {
     const handleSchoolType = (e) => {
         setContent(e.target.value);
         updateLearningDisabilities(e.target.value);
+        localStorage.setItem("learningDisabilities", e.target.value);
     };
+    useEffect(() => {
+        setContent(localStorage.getItem("learningDisabilities"));
+    }, []);
     return (
         <div className="mb-14">
-            <h1 className="text-7xl font-extrabold text-theme-blue">
-                LEANING DISABILITES
+            <h1 className="text-6xl font-extrabold text-theme-blue">
+                LEARNING DISABILITIES
             </h1>
+            <div className="text-2xl flex">
+                Do you have any disorders that affect your learning?
+            </div>
             <div className="flex">
                 <button
                     className={`mt-8 w-80 h-16 border-[1px] border-black text-center rounded-full mr-12 ${

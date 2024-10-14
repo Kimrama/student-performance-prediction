@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 const SchoolType = ({ updateSchoolType }) => {
@@ -6,10 +6,14 @@ const SchoolType = ({ updateSchoolType }) => {
     const handleSchoolType = (e) => {
         setContent(e.target.value);
         updateSchoolType(e.target.value);
+        localStorage.setItem("schoolType", e.target.value);
     };
+    useEffect(() => {
+        setContent(localStorage.getItem("schoolType"));
+    }, []);
     return (
         <div className="mb-14">
-            <h1 className="text-7xl font-extrabold text-theme-blue">
+            <h1 className="text-6xl font-extrabold text-theme-blue">
                 SCHOOL TYPE
             </h1>
             <div className="flex">

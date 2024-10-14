@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 const TeacherQuality = ({ updateTeacherQuality }) => {
@@ -6,12 +6,19 @@ const TeacherQuality = ({ updateTeacherQuality }) => {
     const handleContent = (e) => {
         setContent(e.target.value);
         updateTeacherQuality(e.target.value);
+        localStorage.setItem("teacherQuality", e.target.value);
     };
+    useEffect(() => {
+        setContent(localStorage.getItem("teacherQuality"));
+    }, []);
     return (
         <div className="mb-14">
-            <h1 className="text-7xl font-extrabold text-theme-blue">
+            <h1 className="text-6xl font-extrabold text-theme-blue">
                 TEACHER QUALITY
             </h1>
+            <div className="text-2xl flex">
+                How much do you understand what the teacher is teaching?
+            </div>
             <div className="flex">
                 <button
                     className={`mt-8 w-80 h-16 border-[1px] border-black text-center rounded-full mr-12 ${
